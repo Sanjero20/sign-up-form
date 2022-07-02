@@ -20,13 +20,58 @@
     
     <section class="right">
       <header>
-        <h1>This is not a real online service! You know sometimes, If you're not a good shot today, don't worry. There are other ways to be useful. SHOCKDART!</h1>
-        <h1>Let's do this!</h1>
+        <h2>This is not a real online service! <br> You know sometimes, If you're not a good shot today, don't worry. There are other ways to be useful.</h2>
+        <h2>SHOCKDART!</h2>
       </header>
       <div class="signup-form">
+        <h2> Let's do this! </h2>
+        <form id="myForm" action="#">
+          <fieldset> <!-- Name-->
+            <div>
+              <label for="first-name">First Name</label>
+              <input type="text" id="first-name" name="firstName">
+            </div>
+            <div>
+              <label for="last-name">Last Name</label>
+              <input type="text" id="last-name" name="lastName">
+            </div>
+          </fieldset>
+          
+          <fieldset> <!-- Contact info-->
+            <div>
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email">
 
+            </div>
+            <div>
+              <label for="phone-number">Phone Number</label>
+              <input type="text" id="phone-number" name="phoneNumber">
+
+            </div>
+          </fieldset>
+
+          <fieldset> <!-- Password -->
+            <div>
+              <label for="pass">Password</label>
+              <input type="password" id="pass" name="password">
+            </div>
+
+            <div>
+              <label for="confirm-pass">Confirm password</label>
+              <input type="password" id="confirm-pass" name="confirm-pass">
+
+            </div>
+          </fieldset>
+        </form>
       </div>
+
+      <div id="create-acc">
+        <button type="submit" form="myForm">Create Account</button> 
+        <p>Already have an account? <a href="#">Log in</a></p>
+      </div>
+
     </section>
   </main>
+
 </body>
 </html>

@@ -18,12 +18,12 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(56, 33, 110);
+  background: rgb(40, 23, 78);
 }
 
 main {
   width: 1100px;
-  height: max(600px, 80%);
+  height: 700px;
   margin: 0 20px;
   border: 1px solid black;
   display: flex;
@@ -62,6 +62,7 @@ section.left {
 #reference {
   font-family: sans-serif;
   font-size: 15px;
+  font-weight: bold;
   width: 100%;
   position: absolute;
   text-align: center;
@@ -73,10 +74,57 @@ a:link, a:visited  {color: rgb(197, 197, 197);}
 
 /* Sign up Form Styling */
 section.right {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   background: #222;
   width: 60%;
 }
 
+.right header, 
+.signup-form,
+#create-acc {
+  padding-left: 35px;
+}
+
 .right header {
-  width: 500px;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.signup-form {
+  width: 100;
+  background: #111;
+  box-shadow: 0px 1px 10px rgb(0, 0, 0);
+}
+
+form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+fieldset {
+  border: none; 
+  display: flex;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+fieldset > div {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  width: 90%;
+  color: black;
+}
+
+button {
+  background: #111;
+  padding: 8px 24px;
 }
