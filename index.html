@@ -30,19 +30,19 @@
         <form  class="container" id="myForm" action="">
           <div>
             <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="firstName" pattern="^[A-Za-z\s]+$" required>
+            <input type="text" id="first-name" name="firstName" pattern="^[A-Za-z\s]+$" placeholder=" " required>
             <div class="fname-error msg"></div>
           </div>
 
           <div>
             <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="lastName" pattern="^[A-Za-z\s]+$" required>
+            <input type="text" id="last-name" name="lastName" pattern="^[A-Za-z\s]+$" placeholder=" " required>
             <div class="lname-error msg"></div>
           </div>
         
           <div>
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" name="email" placeholder=" " required>
             <div class="email-error msg"></div>
           </div>
 
@@ -61,7 +61,7 @@
 
           <div class="confirm">
             <label for="confirm-pass">Confirm password</label>
-            <input type="password" id="confirm-pass" name="confirm-pass" required>
+            <input type="password" id="confirm-pass" name="confirm-pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"required>
             <div class="cpass-error msg"></div>
           </div>
 

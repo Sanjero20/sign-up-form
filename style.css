@@ -96,11 +96,12 @@ div.right {
 }
 
 .signup-form > p {
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 10px;
 }
 
 .signup-form {
+  padding-bottom: 40px;
   gap: 10px;
   justify-content: center;
   background: #111;
@@ -124,8 +125,15 @@ form > div {
 }
 
 .msg {
-  font-size: smaller;
+  letter-spacing: 1px;
+  width: 100%;
+  font-size: 13px;
   color:rgb(255, 0, 0)
+}
+
+.pass-error {
+  font-size: 11px;
+  width: 100%;
 }
 
 input {
@@ -149,6 +157,7 @@ button:hover {
 
 /* Validation */
 input {
+  border: 2px solid #111;
   padding: .5em;
 }
 

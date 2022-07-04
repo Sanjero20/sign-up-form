@@ -19,10 +19,10 @@ const passConfirmError = document.querySelector(".cpass-error");
 
 fName.addEventListener('input', (e) => {
   if (fName.value === '') {
-    fNameError.textContent = "Enter your last name"
+    fNameError.textContent = "* ENTER YOUR FIRST NAME"
   } 
   else if (checkPattern(fName.value, fName.pattern) === false) {
-    fNameError.textContent = "only alphabet letters are allowed";
+    fNameError.textContent = "* MUST BE ALPHABET LETTERS ONLY";
   }
   else {
     fNameError.textContent = "";
@@ -31,10 +31,10 @@ fName.addEventListener('input', (e) => {
 
 lName.addEventListener('input', () => {
   if (lName.value === '') {
-    lNameError.textContent = "Enter your last name"
+    lNameError.textContent = "* ENTER YOUR LAST NAME"
   } 
   else if (checkPattern(lName.value, lName.pattern) === false) {
-    lNameError.textContent = "only alphabet letters are allowed";
+    lNameError.textContent = "* MUST BE ALPHABET LETTERS ONLY";
   }
   else {
     lNameError.textContent = "";
@@ -45,25 +45,79 @@ email.addEventListener('input', () => {
   // RFC 2822 standard email validation
   const validEmailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
   if (checkPattern(email.value, validEmailPattern) === false) {
-    emailError.textContent = "Please input a valid email"
+    emailError.textContent = "* MUST BE A VALID EMAIL ADDRESS"
   }
   else {
     emailError.textContent = "";
   }
 })
 
-telNum.addEventListener('input', function(event) {
-  let value = formnatPhoneNumber(telNum.value, event);
+telNum.addEventListener('input', () => {
+  let value = formnatPhoneNumber(telNum.value);
   telNum.value = value;
-
   if (checkPattern(telNum.value, telNum.pattern) === false) {
-    telError.textContent = "Input a valid contact number"
+    telError.textContent = "* MUST BE A VALID PHONE NUMBER"
   }
   else {
     telError.textContent = "";
   }
 })
 
+password.addEventListener('input', (e) => {
+  const passWordValue = password.value;
+  let msg = "";
+
+  if(passWordValue){
+    // Length validation
+    if (passWordValue.length < 6) {
+      msg = "MUST BE ATLEAST 6 CHARACTERS";
+      msg += "<br>";
+    }
+    else {
+      msg = "";
+    }
+
+    // Lowercase Validation
+    if (checkPattern(password.value, "(?=.*[a-z])") === false){
+      msg += "MISSING ATLEAST 1 LOWERCASE LETTER";
+      msg += "<br>";
+    }
+    else {
+      msg += "";
+    }
+
+    // Uppercase Validation
+    if (checkPattern(password.value, "(?=.*[A-Z])") === false){
+      msg += "MISSING ATLEAST 1 UPPERCASE LETTER";
+      msg += "<br>";
+    }
+    else {
+      msg += "";
+    }
+    // Number Validation
+    if (checkPattern(password.value, "(?=.*[0-9])") === false) {
+      msg += "MISSING ATLEAST 1 NUMBER CHARACTER";
+      msg += "<br>";
+    }
+    else {
+      msg += "";
+    }
+
+    passError.innerHTML = msg;
+  }
+  else {
+    passError.textContent = "";
+  }
+})
+
+confirmPass.addEventListener('input', () => {
+  if (password.value !== confirmPass.value) {
+    passConfirmError.textContent = "* PASSWORD DO NOT MATCH";
+  }
+  else {
+    passConfirmError.textContent = "";
+  }
+})
 
 // Functions
 function checkPattern(text, pattern) {
@@ -71,17 +125,15 @@ function checkPattern(text, pattern) {
   return pattern.test(text);
 }
 
-function formnatPhoneNumber(value, event) {
-  let key = event.inputType;
-   if (!value) return value;
+function formnatPhoneNumber(value) {
+  if (!value) return value;
 
-   const phoneNumber = value.replace(/[^\d]/g, '');
-   const phoneNumberLength = phoneNumber.length;
-   
-   if (phoneNumberLength < 5) return phoneNumber;
-   if (phoneNumberLength < 8) {
-    return `${phoneNumber.slice(0, 4)} ${phoneNumber.slice(4)}`
-   }
-   return `${phoneNumber.slice(0, 4)} ${phoneNumber.slice(4, 7)} ${phoneNumber.slice(7,12)}`
+  const phoneNumber = value.replace(/[^\d]/g, '');
+  const phoneNumberLength = phoneNumber.length;
+  
+  if (phoneNumberLength < 5) return phoneNumber;
+  if (phoneNumberLength < 8) {
+  return `${phoneNumber.slice(0, 4)} ${phoneNumber.slice(4)}`
+  }
+  return `${phoneNumber.slice(0, 4)} ${phoneNumber.slice(4, 7)} ${phoneNumber.slice(7,12)}`
 } 
-
