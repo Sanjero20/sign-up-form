@@ -22,7 +22,7 @@ body {
 }
 
 main {
-  width: 1200px;
+  max-width: 1200px;
   height: 800px;
   margin: 0 20px;
   display: flex;
@@ -32,7 +32,7 @@ main {
 }
 
 div.left {
-  width: max(40%, 300px);
+  width: 40%;
   height: 100%;
   background-image: url("./resources/background.jpg");
   background-position: center;
@@ -80,14 +80,12 @@ div.right {
 }
 
 .container {
-  /* padding-left: 30px; */
   margin: 0 auto;
   width: min(700px, 85%);
 }
 
 .signup-form > p,
 .dummy-text {
-  /* font-size: 20px; */
   font-weight: bold;
 }
 
@@ -177,10 +175,11 @@ input:focus:valid {
   main {
     width: 1000px;
     height: 650px;
+    margin: 50px 20px;
   }
 
   .submit-container {
-    padding-bottom: 20px;
+    padding-bottom: 10px;
   }
 }
 
