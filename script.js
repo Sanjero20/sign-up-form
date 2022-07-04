@@ -1,5 +1,3 @@
-const form = document.getElementById('myForm')
-
 // Input elements
 const submitBtn = document.querySelector('#submitBtn');
 const fName = document.querySelector('#first-name');
@@ -17,6 +15,8 @@ const telError = document.querySelector(".tel-error");
 const passError = document.querySelector(".pass-error");
 const passConfirmError = document.querySelector(".cpass-error");
 
+
+// First Name
 fName.addEventListener('input', (e) => {
   if (fName.value === '') {
     fNameError.textContent = "* ENTER YOUR FIRST NAME"
@@ -29,6 +29,7 @@ fName.addEventListener('input', (e) => {
   }
 })
 
+// Last Name
 lName.addEventListener('input', () => {
   if (lName.value === '') {
     lNameError.textContent = "* ENTER YOUR LAST NAME"
@@ -41,10 +42,9 @@ lName.addEventListener('input', () => {
   }
 })
 
+// Email
 email.addEventListener('input', () => {
-  // RFC 2822 standard email validation
-  const validEmailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
-  if (checkPattern(email.value, validEmailPattern) === false) {
+  if (email.validity.typeMismatch) {
     emailError.textContent = "* MUST BE A VALID EMAIL ADDRESS"
   }
   else {
@@ -52,6 +52,7 @@ email.addEventListener('input', () => {
   }
 })
 
+// Phone Number
 telNum.addEventListener('input', () => {
   let value = formnatPhoneNumber(telNum.value);
   telNum.value = value;
@@ -63,6 +64,7 @@ telNum.addEventListener('input', () => {
   }
 })
 
+// Password
 password.addEventListener('input', (e) => {
   const passWordValue = password.value;
   let msg = "";
@@ -102,7 +104,6 @@ password.addEventListener('input', (e) => {
     else {
       msg += "";
     }
-
     passError.innerHTML = msg;
   }
   else {
@@ -110,6 +111,7 @@ password.addEventListener('input', (e) => {
   }
 })
 
+// Confirm Password
 confirmPass.addEventListener('input', () => {
   if (password.value !== confirmPass.value) {
     passConfirmError.textContent = "* PASSWORD DO NOT MATCH";
@@ -118,6 +120,7 @@ confirmPass.addEventListener('input', () => {
     passConfirmError.textContent = "";
   }
 })
+
 
 // Functions
 function checkPattern(text, pattern) {
