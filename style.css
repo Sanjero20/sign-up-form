@@ -22,13 +22,9 @@ body {
 }
 
 main {
-  max-width: 1200px;
-  height: 800px;
-  margin: 0 20px;
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0px 5px 15px rgb(16, 16, 37);
 }
 
 div.left {
@@ -60,7 +56,7 @@ div.left {
 
 #reference {
   font-family: sans-serif;
-  font-size: 12px;
+  font-size: 15px;
   width: 100%;
   position: absolute;
   text-align: center;
@@ -72,6 +68,7 @@ a:link, a:visited  {color: rgb(197, 197, 197);}
 
 /* Sign up Form Styling */
 div.right {
+  padding: 10px 0;
   width: 60%;
   background:rgb(16, 16, 37);
   display: flex;
@@ -81,16 +78,13 @@ div.right {
 
 .container {
   margin: 0 auto;
-  width: min(700px, 85%);
+  width: 85%;
 }
 
 .signup-form > p,
 .dummy-text {
+  font-size: 1.75rem;
   font-weight: bold;
-}
-
-.submit-container {
-  padding-bottom: 75px;
 }
 
 .signup-form > p {
@@ -171,15 +165,40 @@ input:focus:valid {
   border: 2px solid #0f0;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 800px) {
   main {
-    width: 1000px;
-    height: 650px;
-    margin: 50px 20px;
+    display: block;
   }
 
-  .submit-container {
-    padding-bottom: 10px;
+  div.left, div.right {
+    width: 100%;
   }
+
+  div.left {
+    height: 40vh;
+  }
+
+  div.right {
+    height: auto;
+    padding: 20px 0;
+    gap: 20px;
+  }
+
+  .signup-form {
+    height: auto;
+    padding-bottom: 50px; 
+  }
+
+  .container {
+    gap: 50px;
+  }
+
+  form > div {
+    width: 100%;
+  }
+
+  input {
+    width: 90%;
+  } 
 }
 
